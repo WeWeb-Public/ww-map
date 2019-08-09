@@ -9151,10 +9151,10 @@ websocket-extensions@>=0.1.1:
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
   integrity sha512-nqHUnMXmBzT0w570r2JpJxfiSD1IzoI+HGVdd3aZ0yNi3ngvQ4jv1dtHt5VGxfI2yj5yqImPhOK4vmIh2xMbGg==
 
-weweb-client@^1.0.40:
-  version "1.0.40"
-  resolved "https://registry.yarnpkg.com/weweb-client/-/weweb-client-1.0.40.tgz#ccd20212a97c53a396dd577b804e29328d7f7cec"
-  integrity sha512-t7ANsmLU8L4d+2SNpTI7LBWu0xITx8Jywk4QRQXHMP0Eb7qPoiOwi6WsRRltqNAhSoaQOy/y3Iq2shQzLHF3HA==
+weweb-client@^1.0.41:
+  version "1.0.41"
+  resolved "https://registry.yarnpkg.com/weweb-client/-/weweb-client-1.0.41.tgz#a01a5d1bfb11c78cac968fe64ca329ed1b31ab99"
+  integrity sha512-nO1fQ6/+ukIeG1zYEvoNj+lIEAXYXrcp94FWf4zYxijaAE0aB1yQeLCEAZQ3cW4y+l5XXCrnYVgzQxcOJCOtrw==
   dependencies:
     "@vue/cli-plugin-babel" "^3.0.5"
     "@vue/cli-plugin-eslint" "^3.0.5"

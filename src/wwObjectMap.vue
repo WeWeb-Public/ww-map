@@ -55,24 +55,24 @@ export default {
         },
         initMap() {
             const self = this;
-            this.wwObject.content.data.lat = this.wwObject.content.data.lat || "48.859923";
-            this.wwObject.content.data.lng = this.wwObject.content.data.lng || "2.344065";
-            this.wwObject.content.data.zoom = this.wwObject.content.data.zoom || 15
+            this.wwObject.data.lat = this.wwObject.data.lat || "48.859923";
+            this.wwObject.data.lng = this.wwObject.data.lng || "2.344065";
+            this.wwObject.data.zoom = this.wwObject.data.zoom || 15
             this.mapsRand = Math.floor(Math.random() * 1000000000);
             window["initMap" + this.mapsRand] = function () {
-                const myLatLng = { lat: parseFloat(self.wwObject.content.data.lat), lng: parseFloat(self.wwObject.content.data.lng) };
+                const myLatLng = { lat: parseFloat(self.wwObject.data.lat), lng: parseFloat(self.wwObject.data.lng) };
 
                 self.map = new google.maps.Map(self.$el.getElementsByClassName('map')[0], {
                     center: myLatLng,
                     scrollwheel: false,
-                    zoom: self.wwObject.content.data.zoom,
-                    styles: self.wwObject.content.data.mapStyles || []
+                    zoom: self.wwObject.data.zoom,
+                    styles: self.wwObject.data.mapStyles || []
                 });
 
                 // ADD SAVED MARKERS
                 self.addMarkers('first-time')
             }
-            let googleKey = this.wwObject.content.data.googleKey || 'AIzaSyCV0YKPp78GUBiMzBdDY2QBIuDMwaKLnHw';
+            let googleKey = this.wwObject.data.googleKey || 'AIzaSyCV0YKPp78GUBiMzBdDY2QBIuDMwaKLnHw';
             // Prepare specific script for this specific element
             this.scriptSrc = 'https://maps.googleapis.com/maps/api/js?key=' + googleKey + '&libraries=places&callback=initMap' + this.mapsRand;
             // Add script google map to head
@@ -81,7 +81,7 @@ export default {
             wwLib.getFrontDocument().head.appendChild(ckeditor);
         },
         addMarkers(option) {
-            if (typeof this.wwObject.content.data.markers == 'undefined') return;
+            if (typeof this.wwObject.data.markers == 'undefined') return;
             if (option == 'update') {
                 // REMOVE MARKERS ON THE MAP
                 if (this.markerInstances.length > 0) {
@@ -93,7 +93,7 @@ export default {
                 }
             }
 
-            for (let marker of this.wwObject.content.data.markers) {
+            for (let marker of this.wwObject.data.markers) {
                 const latlng = { lat: marker.lat, lng: marker.lng };
                 let icon = '';
                 let image = {};
@@ -336,12 +336,12 @@ export default {
                 firstPage: 'WWMAP_EDIT',
                 data: {
                     wwObject: this.wwObject,
-                    mapStyles: JSON.stringify(this.wwObject.content.data.mapStyles),
-                    lat: this.wwObject.content.data.lat,
-                    lng: this.wwObject.content.data.lng,
-                    zoom: this.wwObject.content.data.zoom,
-                    googleKey: this.wwObject.content.data.googleKey || 'AIzaSyCV0YKPp78GUBiMzBdDY2QBIuDMwaKLnHw',
-                    markers: this.wwObject.content.data.markers
+                    mapStyles: JSON.stringify(this.wwObject.data.mapStyles),
+                    lat: this.wwObject.data.lat,
+                    lng: this.wwObject.data.lng,
+                    zoom: this.wwObject.data.zoom,
+                    googleKey: this.wwObject.data.googleKey || 'AIzaSyCV0YKPp78GUBiMzBdDY2QBIuDMwaKLnHw',
+                    markers: this.wwObject.data.markers
                 }
             }
 
@@ -355,25 +355,25 @@ export default {
                     this.wwObject.ratio = result.ratio;
                 }
                 if (typeof (result.mapStyles) != 'undefined') {
-                    this.wwObject.content.data.mapStyles = JSON.parse(result.mapStyles || '[]');
+                    this.wwObject.data.mapStyles = JSON.parse(result.mapStyles || '[]');
                 }
                 if (typeof (result.lat) != 'undefined') {
-                    this.wwObject.content.data.lat = result.lat;
-                    this.map.setCenter({ lat: parseFloat(this.wwObject.content.data.lat), lng: parseFloat(this.wwObject.content.data.lng) });
+                    this.wwObject.data.lat = result.lat;
+                    this.map.setCenter({ lat: parseFloat(this.wwObject.data.lat), lng: parseFloat(this.wwObject.data.lng) });
                 }
                 if (typeof (result.lng) != 'undefined') {
-                    this.wwObject.content.data.lng = result.lng;
-                    this.map.setCenter({ lat: parseFloat(this.wwObject.content.data.lat), lng: parseFloat(this.wwObject.content.data.lng) });
+                    this.wwObject.data.lng = result.lng;
+                    this.map.setCenter({ lat: parseFloat(this.wwObject.data.lat), lng: parseFloat(this.wwObject.data.lng) });
                 }
                 if (typeof (result.zoom) != 'undefined') {
-                    this.wwObject.content.data.zoom = parseInt(result.zoom);
+                    this.wwObject.data.zoom = parseInt(result.zoom);
                     this.map.setZoom(parseInt(result.zoom))
                 }
                 if (typeof (result.googleKey) != 'undefined') {
-                    this.wwObject.content.data.googleKey = result.googleKey;
+                    this.wwObject.data.googleKey = result.googleKey;
                 }
                 if (typeof (result.markers) != 'undefined') {
-                    this.wwObject.content.data.markers = result.markers;
+                    this.wwObject.data.markers = result.markers;
                     this.addMarkers('update')
                 }
 

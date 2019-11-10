@@ -131,6 +131,8 @@ export default {
     position: relative;
     font-family: "Monserrat", sans-serif;
     font-size: 1.2rem;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
     flex-grow: 1;
     .loader {
         height: 100%;
@@ -141,6 +143,7 @@ export default {
             position: absolute;
             top: 50%;
             left: 50%;
+            -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
             font-size: 4rem;
         }
@@ -159,6 +162,8 @@ export default {
     }
     .button {
         margin-top: 20px;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
         width: fit-content;
     }
 
@@ -186,6 +191,7 @@ export default {
         }
     }
     .marker {
+        -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
         box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
         margin-top: 10px;
         background-color: #fafafa;
@@ -206,8 +212,14 @@ export default {
             background-color: #ce003b;
             border-radius: 20px;
             font-size: 0.8em;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
             align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
             justify-content: center;
             cursor: pointer;
         }
@@ -215,8 +227,14 @@ export default {
     .footer {
         margin-top: 50px;
         position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
     }
     .add-btn {
